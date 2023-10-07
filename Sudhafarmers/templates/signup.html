@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+<html>
 	<!-- <meta charset="UTF-8">
 	<meta name="description" content = "A user-friendly website for farmers; A common sign up page for both, the farmers and the wholesalers." />
 	<meta name="keywords" content="farmer, wholesaler, consumer, help, videos, login, signup, swadeshi, mandi, market, vegetables, fruits, grains, spices, food, village, price, Seed, Farm Machinery, Fertilizers, Soil Health, Pesticies, Market Price, Agromet Services, Crop information, Storage">
@@ -11,7 +11,6 @@
 -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
   {% load static %}
-{% block content %}
 	<link rel="stylesheet" href="{% static 'css/wholestyle.css' %}" />
 
 
@@ -51,7 +50,7 @@
             <div id="EntitySelect">
 				<button class="entity" data-value="farmer">Farmer</button>
 				<button class="entity" data-value="wholesaler">Wholesaler</button>
-				<button class="entity disabled" data-value="consumer">Consumer</button>
+				<button class="entity" data-value="consumer">Consumer</button>
             </div>
 
             <div class="floating-label">
@@ -82,4 +81,4 @@
         </div>
 
     </main>
-{% endblock %}
+	</html>
