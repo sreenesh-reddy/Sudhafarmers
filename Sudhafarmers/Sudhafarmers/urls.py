@@ -15,16 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from farmersco import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.base),
     path('home/',views.home,name='home'),
     path('news/',views.news,name='news'),
     path('signup/',views.sup),
-        path('auth/user/', views.auth_user, name='auth_user'),
+    path('auth/user/', views.auth_user, name='auth_user'),
     path('auth/logout/', views.auth_logout, name ='auth_logout'),
-    path('farmers_home/',views.farmers_home)
+    path('farmers_home/',views.farmers_home),
+    path('', include('weather_api.urls')),
 
 ]
