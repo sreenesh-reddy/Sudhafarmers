@@ -1,30 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
+{% extends 'base.html' %}
+	<!-- <meta charset="UTF-8">
 	<meta name="description" content = "A user-friendly website for farmers; A common sign up page for both, the farmers and the wholesalers." />
 	<meta name="keywords" content="farmer, wholesaler, consumer, help, videos, login, signup, swadeshi, mandi, market, vegetables, fruits, grains, spices, food, village, price, Seed, Farm Machinery, Fertilizers, Soil Health, Pesticies, Market Price, Agromet Services, Crop information, Storage">
 	<meta name="theme-color" content="#f4f4f4">
 	<meta name="author" content="Kartik Soneji, Harsh Kapadia, Tushar Nankani">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
 <!-- 
 	<link rel="icon" href="../logo.svg" sizes="any" />
-
+-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+  {% load static %}
+{% block content %}
+	<link rel="stylesheet" href="{% static 'css/wholestyle.css' %}" />
 
-	<link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="style.css" />
-     -->
+
+    <link rel="stylesheet" href="{% static 'css/signup_style.css' %}" />
+    
     <title>Sign Up</title>
-    {% load static %}
+  
 	<!-- <script defer="" src="{% static 'js/util.js' %}"></script> -->
 	<script defer="" src="../translation.js"></script>
 	<script defer="" src="{% static 'js/sup.js' %}"></script>
-</head>
 
-<body>
-    <nav>
+
+    <!-- <nav>
 		<img class="logo" src="../logo.svg" alt="logo" />
 		
 		<ul>
@@ -42,7 +42,7 @@
 				</button>
 			</div>
 		</ul>
-	</nav>
+	</nav> -->
 
 	<main>
         <div id="login-box">
@@ -82,5 +82,4 @@
         </div>
 
     </main>
-</body>
-</html>
+{% endblock %}
