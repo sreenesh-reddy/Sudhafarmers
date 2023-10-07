@@ -19,6 +19,8 @@ from django.urls import path
 from farmersco import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home),
+    path('',views.base),
+    path('home/',views.home,name='home'),
+    path('news/',views.news,name='news'),
 
 ]
