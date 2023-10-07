@@ -19,10 +19,12 @@ from django.urls import path
 from farmersco import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home),
+    path('',views.base),
+    path('home/',views.home,name='home'),
+    path('news/',views.news,name='news'),
     path('signup/',views.sup),
         path('auth/user/', views.auth_user, name='auth_user'),
-    path('auth/logout/', views.auth_logout, name='auth_logout'),
+    path('auth/logout/', views.auth_logout, name ='auth_logout'),
     path('farmers_home/',views.farmers_home)
 
 ]

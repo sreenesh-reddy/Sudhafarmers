@@ -33,3 +33,9 @@ def auth_logout(request):
     # Logout the user
     logout(request)
     return JsonResponse({'message': 'Logout successful'})
+
+def news(request):
+    return render(request,'news.html')
+
+def base(request):
+    return render(request,'base.html')
