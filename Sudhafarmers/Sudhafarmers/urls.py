@@ -20,8 +20,8 @@ from farmersco import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.base),
-    path('home/',views.home,name='home'),
+    # path('',views.base),
+    path('',views.home,name='home'),
     path('news/',views.news,name='news'),
     path('signup/',views.sup),
     path('auth/user/', views.auth_user, name='auth_user'),
