@@ -65,13 +65,15 @@ def addInDiscussion(request):
     context ={'form':form}
     return render(request,'addInDiscussion.html',context)
 def viewmore(request,topic):
-    try:
-        my_object = forum.objects.get(topic=topic)
-    except:
-        pass
-    
 
-    return render(request,'viewmore.html',{'forum':my_object})
+    my_object = forum.objects.get(topic=topic)
+    discussions=[]
+    
+    discussions.append(my_object.discussion_set.all())
+
+    context={'forum':my_object,
+            'discussions':discussions}
+    return render(request,'viewmore.html',context)
 
 from .models import FarmerLogin, WholesalerLogin, ConsumerLogin
 
