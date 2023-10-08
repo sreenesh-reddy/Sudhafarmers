@@ -9,7 +9,7 @@
   {% if title %}
     <title>{{title}}</title>
   {% else %}
-    <title>FarmersCorner</title>
+    <title>FarmersConnect</title>
   {% endif %}
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -50,60 +50,15 @@
 
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="static/img/logo.png" alt="">
-        <span>FlexStart</span>
+        <span>FarmersConnect</span>
       </a>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'home' %}">Home</a></li>
           <li><a class="nav-link scrollto" href="">About</a></li>
-          <li><a class="nav-link scrollto" href="">Services</a></li>
           <li><a class="nav-link scrollto" href="{% url 'news' %}">News</a></li>
           <li><a class="nav-link scrollto" href="{% url 'w_home' %}">Forecast</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-
-          <li class="dropdown megamenu"><a href="#"><span>Mega Menu</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li>
-                <a href="#">Column 1 link 1</a>
-                <a href="#">Column 1 link 2</a>
-                <a href="#">Column 1 link 3</a>
-              </li>
-              <li>
-                <a href="#">Column 2 link 1</a>
-                <a href="#">Column 2 link 2</a>
-                <a href="#">Column 3 link 3</a>
-              </li>
-              <li>
-                <a href="#">Column 3 link 1</a>
-                <a href="#">Column 3 link 2</a>
-                <a href="#">Column 3 link 3</a>
-              </li>
-              <li>
-                <a href="#">Column 4 link 1</a>
-                <a href="#">Column 4 link 2</a>
-                <a href="#">Column 4 link 3</a>
-              </li>
-            </ul>
-          </li>
-
           <li><a class="nav-link scrollto" href="">Contact</a></li>
           <li><a class="getstarted scrollto" href="">Get Started</a></li>
         </ul>
@@ -121,12 +76,15 @@
     <div class="footer-top">
       <div class="container">
         <div class="row gy-4">
-          <div class="col-lg-5 col-md-12 footer-info">
+          <div class="col-lg-7 col-md-12 footer-info">
             <a href="index.html" class="logo d-flex align-items-center">
               <img src="static/img/logo.png" alt="">
-              <span>FlexStart</span>
+              <span>FarmersConnect</span>
             </a>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <p>Our goal is empower
+              farmers by providing a seamless interface for seeking advice from agricultural
+              experts,sharing information with middlemen, and accessing valuable resources
+              such as weather forecasts and market insights </p>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
               <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -136,35 +94,24 @@
           </div>
 
           <div class="col-lg-2 col-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bi bi-chevron-right"></i> Connecting Farmers</li>
+              <li><i class="bi bi-chevron-right"></i> Latest News</li>
+              <li><i class="bi bi-chevron-right"></i> Eliminating Middlemen</li>
+              <li><i class="bi bi-chevron-right"></i> Marketing</li>
+              <li><i class="bi bi-chevron-right"></i> Weather Updates</li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
             <h4>Contact Us</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              C201 CSE Block <br>
+              Gandipet, CBIT 535022<br>
+              India <br><br>
+              <strong>Phone:</strong> +91 93081 97000<br>
+              <strong>Email:</strong> farmersCorner@gmail.com<br>
             </p>
 
           </div>
@@ -175,7 +122,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>FlexStart</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>FarmersConnect</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->
