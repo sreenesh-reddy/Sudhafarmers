@@ -10,7 +10,7 @@ import math
 # Create your views here.
 
 def index(request):
-    return render(request, "weather_api/home.html")
+    return render(request, "weather_api/home.html",{"title" : "Weather"})
 
 
 
@@ -71,7 +71,7 @@ def result(request):
             }
         except:
             context = {
-
+            "title":"Weather",
             "city_name":"Not Found, Check your spelling..."
         }
 

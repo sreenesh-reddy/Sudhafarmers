@@ -1198,14 +1198,14 @@ form textarea {
 
 .hero {
   background-size: cover;
-  padding: 70px 0;
-  min-height: 350px; }
+  padding: 70px 0 0 0;
+  min-height: 100px; }
 
 .find-location {
   position: relative;
   margin-bottom: 70px; }
   .find-location input[type="text"] {
-    width: 100%;
+    width: 70%;
     padding: 20px 50px 20px 20px;
     background: #1e202b;
     color: white; }
