@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+    return render(request,'home.html',{"title":"Home|Farmers Corner"})
 def farmers_home(request):
     return render(request, 'farmers_home.html')
 
@@ -35,7 +35,7 @@ def auth_logout(request):
     return JsonResponse({'message': 'Logout successful'})
 
 def news(request):
-    return render(request,'news.html')
+    return render(request,'news.html',{"title" : "News"})
 
 def base(request):
     return render(request,'base.html')
@@ -64,5 +64,5 @@ def consumer_registration(request):
             return redirect('dashboard')  # Redirect to a user-specific dashboard
     else:
         form = ConsumerRegistrationForm()
-    return render(request, 'consumer_registration.html', {'form': form}
+    return render(request, 'consumer_registration.html', {'form': form})
 
