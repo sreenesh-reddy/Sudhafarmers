@@ -40,6 +40,24 @@ def news(request):
 
 def base(request):
     return render(request,'base.html')
+from django.shortcuts import redirect
+
+def signup_entity(request, entity_type):
+    # Validate entity_type, e.g., ensure it's one of the valid options (farmer, wholesaler, consumer)
+    valid_entity_types = ['farmer', 'wholesaler', 'consumer']
+    if entity_type not in valid_entity_types:
+        # Handle invalid entity_type, e.g., redirect to an error page
+        return redirect('error_page')  # Replace 'error_page' with your actual error page URL
+
+    # You can perform additional validation or processing here if needed
+    
+    # Redirect to the registration URL based on the selected entity type
+    if entity_type == 'farmer':
+        return redirect('farmer_registration')
+    elif entity_type == 'wholesaler':
+        return redirect('wholesaler_registration')
+    elif entity_type == 'consumer':
+        return redirect('consumer_registration')
 
 def farmer_registration(request):
     if request.method == 'POST':
