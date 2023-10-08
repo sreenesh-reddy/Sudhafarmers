@@ -28,7 +28,12 @@ urlpatterns = [
     path('auth/logout/', views.auth_logout, name ='auth_logout'),
     path('farmers_home/',views.farmers_home,name='farmers_home'),
     path('signup/', views.signup, name='signup'),
-    
+    path('farmers_home/',views.farmers_home),
+    path('', include('weather_api.urls')),
+    path('askexpert/',views.askexp),
+    path('addInForum/',views.addInForum,name='addInForum'),
+    path('addInDiscussion/',views.addInDiscussion,name='addInDiscussion'),
+    path('viewmore/<str:topic>/',views.viewmore,name='view_more')
 
 
 ]

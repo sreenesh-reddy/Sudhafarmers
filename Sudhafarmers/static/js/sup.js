@@ -12,6 +12,26 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#Submit").addEventListener("click", signupUser);
 });
 
+const signupButton = document.getElementById("Submit");
+signupButton.addEventListener("click", function() {
+    // Get the selected entity type from the dataset
+    const selectedEntity = document.querySelector(".entity.selected");
+    if (!selectedEntity) {
+        // Handle the case where no entity is selected
+        alert("Please select one entity");
+        console.error("Please select one entity");
+        return;
+    }
+
+    const entity_type = selectedEntity.dataset.value;
+
+    // Construct the URL with the entity_type parameter
+    const signupURL = `/signup/${entity_type}/`;
+
+    // Redirect the user to the constructed URL
+    window.location.href = signupURL;
+});
+
 function selectEntity(e) {
     if (!e.target.matches("button:not(.disabled)"))
         return;
@@ -51,6 +71,10 @@ function selectEntity(e) {
 //         console.error(error);
 //     }
 // }
+function isInputValid(input){
+	return new RegExp(input.pattern).test(input.value);
+}
+
 async function signupUser() {
     let data = validateInputs();
     if (!data) return;

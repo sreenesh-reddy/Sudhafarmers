@@ -1,9 +1,10 @@
+#from .forms import FarmerRegistrationForm, ConsumerRegistrationForm
 from django.shortcuts import render,redirect
-# from .forms import FarmerRegistrationForm, ConsumerRegistrationForm
-
+from .models import * 
+from .forms import * 
 # Create your views here.
 def home(request):
-    return render(request,'home.html',{"title":"Home|Farmers Corner"})
+    return render(request,'home.html',{"title":"Home | Farmers Corner"})
 def farmers_home(request):
     return render(request, 'farmers_home.html')
 
@@ -41,28 +42,66 @@ def news(request):
 def base(request):
     return render(request,'base.html')
 
-# def farmer_registration(request):
-#     if request.method == 'POST':
-#         form = FarmerRegistrationForm(request.POST)
-#         if form.is_valid():
-#             # Retrieve the selected entity type from the form
-#             entity_type = request.POST.get('entity_type')
-#             # ... Rest of the registration logic
-#     else:
-#         form = FarmerRegistrationForm()
-#     return render(request, 'farmer_registration.html', {'form': form})
 
-# def consumer_registration(request):
-#     if request.method == 'POST':
-#         form = ConsumerRegistrationForm(request.POST)
-#         if form.is_valid():
-#             # Retrieve the selected entity type from the form
-#             entity_type = request.POST.get('entity_type')
-#             # ... Rest of the registration logic
-#     else:
-#         form = ConsumerRegistrationForm()
-#     return render(request, 'consumer_registration.html', {'form': form})
+from .models import FarmerLogin, WholesalerLogin, ConsumerLogin
 
+
+ 
+def addInDiscussion(request):
+    form = CreateInDiscussion()
+    if request.method == 'POST':
+        form = CreateInDiscussion(request.POST)
+        if form.is_valid():
+            # Retrieve the selected entity type from the form
+            entity_type = request.POST.get('entity_type')
+            # ... Rest of the registration logic
+    else:
+        form = ConsumerRegistrationForm()
+    return render(request, 'consumer_registration.html', {'form': form})
+
+
+def askexp(request):
+    forums=forum.objects.all()
+    count=forums.count()
+    discussions=[]
+    for i in forums:
+        discussions.append(i.discussion_set.all())
+ 
+    context={'forums':forums,
+              'count':count,
+              'discussions':discussions}
+    return render(request,'askexp.html',context)
+
+def addInForum(request):
+    form = CreateInForum()
+    if request.method == 'POST':
+        form = CreateInForum(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context ={'form':form}
+    return render(request,'addinform.html',context)
+ 
+def addInDiscussion(request):
+    form = CreateInDiscussion()
+    if request.method == 'POST':
+        form = CreateInDiscussion(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context ={'form':form}
+    return render(request,'addInDiscussion.html',context)
+def viewmore(request,topic):
+    forums=forum.objects.all()
+    count=forums.count()
+    discussions=[]
+    for i in forums:
+        discussions.append(i.discussion_set.all())
+ 
+    context={'forums':forums,
+              'count':count,
+              'discussions':discussions}
+    return render(request,'viewmore.html',context)
 
 from .models import FarmerLogin, WholesalerLogin, ConsumerLogin
 
@@ -82,5 +121,3 @@ def signup(request):
         return redirect('farmers_home')
     
     return render(request, 'signup.html')
-
-
