@@ -21,35 +21,45 @@ function selectEntity(e) {
     e.target.classList.add("selected");
 }
 
+// async function signupUser() {
+//     let data = validateInputs();
+//     if (!data)
+//         return;
+
+//     // Make an AJAX request to your Django view for user signup.
+//     try {
+//         const response = await fetch("/auth/add/", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//                 // Add any other headers you may need
+//             },
+//             body: JSON.stringify({
+//                 name: data.name,
+//                 aadhaar: data.aadhaar,
+//                 isFarmer: (data.entity == "farmer"),
+//                 isWholesaler: (data.entity == "wholesaler"),
+//             }),
+//         });
+
+//         if (response.status == 200) {
+//             await checkAuthentication();
+//         } else {
+//             console.error(await response.json());
+//         }
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
 async function signupUser() {
     let data = validateInputs();
-    if (!data)
-        return;
+    if (!data) return;
 
-    // Make an AJAX request to your Django view for user signup.
-    try {
-        const response = await fetch("/auth/add/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                // Add any other headers you may need
-            },
-            body: JSON.stringify({
-                name: data.name,
-                aadhaar: data.aadhaar,
-                isFarmer: (data.entity == "farmer"),
-                isWholesaler: (data.entity == "wholesaler"),
-            }),
-        });
+    // Get the selected entity type from the hidden input field
+    let entityType = document.querySelector("#EntityType").value;
 
-        if (response.status == 200) {
-            await checkAuthentication();
-        } else {
-            console.error(await response.json());
-        }
-    } catch (error) {
-        console.error(error);
-    }
+    // Redirect to the registration URL based on the entity type
+    window.location.href = `/registration/${entityType}/`;
 }
 
 function validateInputs() {
