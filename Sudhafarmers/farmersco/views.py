@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from .forms import FarmerRegistrationForm, ConsumerRegistrationForm
-
+#from .forms import FarmerRegistrationForm, ConsumerRegistrationForm
+from django.shortcuts import render,redirect
+from .models import * 
+from .forms import * 
 # Create your views here.
 def home(request):
     return render(request,'home.html',{"title":"Home | Farmers Corner"})
@@ -81,3 +82,46 @@ def consumer_registration(request):
         form = ConsumerRegistrationForm()
     return render(request, 'consumer_registration.html', {'form': form})
 
+
+def askexp(request):
+    forums=forum.objects.all()
+    count=forums.count()
+    discussions=[]
+    for i in forums:
+        discussions.append(i.discussion_set.all())
+ 
+    context={'forums':forums,
+              'count':count,
+              'discussions':discussions}
+    return render(request,'askexp.html',context)
+
+def addInForum(request):
+    form = CreateInForum()
+    if request.method == 'POST':
+        form = CreateInForum(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context ={'form':form}
+    return render(request,'addinform.html',context)
+ 
+def addInDiscussion(request):
+    form = CreateInDiscussion()
+    if request.method == 'POST':
+        form = CreateInDiscussion(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context ={'form':form}
+    return render(request,'addInDiscussion.html',context)
+def viewmore(request,topic):
+    forums=forum.objects.all()
+    count=forums.count()
+    discussions=[]
+    for i in forums:
+        discussions.append(i.discussion_set.all())
+ 
+    context={'forums':forums,
+              'count':count,
+              'discussions':discussions}
+    return render(request,'viewmore.html',context)
