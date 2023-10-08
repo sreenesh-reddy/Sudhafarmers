@@ -3,7 +3,7 @@ from .forms import FarmerRegistrationForm, ConsumerRegistrationForm
 
 # Create your views here.
 def home(request):
-    return render(request,'home.html',{"title":"Home|Farmers Corner"})
+    return render(request,'home.html',{"title":"Home | Farmers Corner"})
 def farmers_home(request):
     return render(request, 'farmers_home.html')
 
