@@ -1,26 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 
-                <div class="card box container">
-                    <br>
-                    <h5 class="card-title">
-                        <a href='{{forum.link}}'><h3>{{forum.topic}}</h3></a> 
-                        <div class="card-body container">
-                                <p>{{forum.description}}</p>
-                            </h5>
+                <div class="card box container" style="margin-top:100px;margin-bottom:80px;">
+                    <br> 
+                    <div class="card-body container">
+                            <h1 class="">
+                                <a href='{{forum.link}}'><h1>{{forum.topic}}</h1></a> 
+                            </h1>
                             <hr>
-                            <p> By: {{forum.name}}</p>
+                                <span style="margin-right: 50px;"><strong> Description: </strong> {{forum.description}}</span>
+                           
+                            <span> <strong> By: </strong> {{forum.name}}</span>
                             <hr>     
     
                             <h4>Answers by experts:</h4>
                             {%for discuss in discussions%}
-                            {%for objs in discuss%}  
-                            {% if objs.forum == forum %}
-                               {{objs.discuss}}
-                               <br>
-                            {% endif %}
+                                {% if discuss is None %}
+                                    <p>No answers yet...</p>
+                                {% else %}
+                                    {%for objs in discuss%}  
+                                        {% if objs.forum == forum %}
+                                        <strong> Expert : </strong> {{objs.discuss}}<br>
+                                        {% endif %}
+                                    {%endfor%}
+                                {% endif %}
                             {%endfor%}
-                            {%endfor%}
+                            <hr>
                             <form method="POST" action="{% url 'addInDiscussion' %}">
                                 {% csrf_token %}
                             <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Give Answer</button>
