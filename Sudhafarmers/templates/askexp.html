@@ -13,25 +13,26 @@
 <div class="container" style="margin-top: 50px;">
     <section class="border-bottom pb-4 mb-5">
         <div class="row gx-5">
-          <div class="col-md-6 mb-4">
+          <div class="col-md-6 mb-4 fs-4">
             Currently active forums: {{count}}
             <form method="POST" action="{% url 'addInForum' %}">
                 {% csrf_token %}
-            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
+            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add Forum</button>
             </form>
             </div>
+            <hr>
             
             <div class="card-columns" style="padding: 10px; margin: 20px;"></div>
             
             
             {%for forum in forums %}
             
-                <div class="card box container">
+                <div class="card box ">
                     <br>
                     <h5 class="card-title">
                         <a href='{{forum.link}}'><h3>{{forum.topic}}</h3></a> 
                         <div class="card-body container">
-                                <p>{{forum.description}}</p>
+                                <p>Description : {{forum.description}}</p>
                             </h5>
                             <hr>
                             <p> By: {{forum.name}}</p>
