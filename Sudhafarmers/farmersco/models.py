@@ -20,3 +20,26 @@ class ConsumerProfile(models.Model):
 
     def __str__(self):
         return self.username
+    
+
+
+
+
+
+class FarmerLogin(models.Model):
+    name = models.CharField(max_length=100)
+    aadhar_card_number = models.CharField(max_length=12, unique=True)
+    def __str__(self):
+        return self.name
+
+class WholesalerLogin(models.Model):
+    name = models.CharField(max_length=100)
+    aadhar_card_number = models.CharField(max_length=12, unique=True)
+    def __str__(self):
+        return self.name
+
+class ConsumerLogin(models.Model):
+    name = models.CharField(max_length=100)
+    aadhar_card_number = models.CharField(max_length=12, unique=True)
+    def __str__(self):
+        return self.name

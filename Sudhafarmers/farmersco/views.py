@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .forms import FarmerRegistrationForm, ConsumerRegistrationForm
+from django.shortcuts import render,redirect
+# from .forms import FarmerRegistrationForm, ConsumerRegistrationForm
 
 # Create your views here.
 def home(request):
@@ -41,25 +41,46 @@ def news(request):
 def base(request):
     return render(request,'base.html')
 
-def farmer_registration(request):
-    if request.method == 'POST':
-        form = FarmerRegistrationForm(request.POST)
-        if form.is_valid():
-            # Retrieve the selected entity type from the form
-            entity_type = request.POST.get('entity_type')
-            # ... Rest of the registration logic
-    else:
-        form = FarmerRegistrationForm()
-    return render(request, 'farmer_registration.html', {'form': form})
+# def farmer_registration(request):
+#     if request.method == 'POST':
+#         form = FarmerRegistrationForm(request.POST)
+#         if form.is_valid():
+#             # Retrieve the selected entity type from the form
+#             entity_type = request.POST.get('entity_type')
+#             # ... Rest of the registration logic
+#     else:
+#         form = FarmerRegistrationForm()
+#     return render(request, 'farmer_registration.html', {'form': form})
 
-def consumer_registration(request):
+# def consumer_registration(request):
+#     if request.method == 'POST':
+#         form = ConsumerRegistrationForm(request.POST)
+#         if form.is_valid():
+#             # Retrieve the selected entity type from the form
+#             entity_type = request.POST.get('entity_type')
+#             # ... Rest of the registration logic
+#     else:
+#         form = ConsumerRegistrationForm()
+#     return render(request, 'consumer_registration.html', {'form': form})
+
+
+from .models import FarmerLogin, WholesalerLogin, ConsumerLogin
+
+def signup(request):
+    entity = request.GET.get('entity')
     if request.method == 'POST':
-        form = ConsumerRegistrationForm(request.POST)
-        if form.is_valid():
-            # Retrieve the selected entity type from the form
-            entity_type = request.POST.get('entity_type')
-            # ... Rest of the registration logic
-    else:
-        form = ConsumerRegistrationForm()
-    return render(request, 'consumer_registration.html', {'form': form})
+        name = request.POST.get('name')
+        aadhar_card_number = request.POST.get('Aadhar')
+        
+        if entity == 'farmer':
+            FarmerLogin.objects.create(name=name, aadhar_card_number=aadhar_card_number)
+        elif entity == 'wholesaler':
+            WholesalerLogin.objects.create(name=name, aadhar_card_number=aadhar_card_number)
+        elif entity == 'consumer':
+            ConsumerLogin.objects.create(name=name, aadhar_card_number=aadhar_card_number)
+
+        return redirect('farmers_home')
+    
+    return render(request, 'signup.html')
+
 

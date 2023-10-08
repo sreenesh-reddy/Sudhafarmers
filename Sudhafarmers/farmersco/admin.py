@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import FarmerLogin,ConsumerLogin,WholesalerLogin
 
-# Register your models here.
+admin.site.register(FarmerLogin)
+admin.site.register(ConsumerLogin)
+admin.site.register(WholesalerLogin)

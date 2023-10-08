@@ -22,63 +22,53 @@
 	<script defer="" src="../translation.js"></script>
 	<script defer="" src="{% static 'js/sup.js' %}"></script>
 
-
-    <!-- <nav>
-		<img class="logo" src="../logo.svg" alt="logo" />
-		
-		<ul>
-			<li><a href="../index.html">Home</a> </li>
-			<li><a href="../contact/index.html">Contact Us</a></li>
-			<div class="text-s">
-				<button  onclick="fontInc()">
-					<li class="textsize">A<sup>+</sup></li>
-				</button>
-				<button onclick="fontDec()">
-					<li class="textsize">A<sup>-</sup></li>
-				</button>
-				<button onclick="toggleLanguage()">
-					<li class="textsize">हिन्दी</li>
-				</button>
-			</div>
-		</ul>
-	</nav> -->
-
+	<script>
+		function setEntityType(entity) {
+			document.getElementById("EntityType").value = entity;
+			document.getElementById("signup-form").action = `{% url 'signup' %}?entity=${entity}`;
+		}
+	</script>
+	
+   
 	<main>
-        <div id="login-box">
-            <h1>Sign up</h1>
-
-            <div id="EntitySelect">
-				<button class="entity" data-value="farmer">Farmer</button>
-				<button class="entity" data-value="wholesaler">Wholesaler</button>
-				<button class="entity" data-value="consumer">Consumer</button>
-            </div>
-
-            <div class="floating-label">
-                <input
-					id="Name"
-					type="text"
-					placeholder="placeholder"
-					pattern="[^\s\d]{3,}"
-					required=""
-				/>
-                <label for="Name">Name</label>
-            </div>
-
-            <div class="floating-label">
-                <input
-					id="Aadhar"
-					type="text"
-					placeholder="placeholder"
-					pattern="\d{12}"
-					minlength="12"
-					maxlength="12"
-					required=""
-				/>
-                <label for="Aadhar">Aadhar Card Number</label>
-            </div>
-			<input type="hidden" id="EntityType" name="entity_type" value="" />
-			<button type="submit" id="Submit">SUBMIT</button>
-        </div>
-
-    </main>
+		<div id="login-box">
+			<h1>Sign up</h1>
+			<form method="post" action="{% url 'signup' %}" id="signup-form">
+				{% csrf_token %}
+				<div id="EntitySelect">
+					<button class="entity" data-value="farmer" onclick="setEntityType('farmer')">Farmer</button>
+					<button class="entity" data-value="wholesaler" onclick="setEntityType('wholesaler')">Wholesaler</button>
+					<button class="entity" data-value="consumer" onclick="setEntityType('consumer')">Consumer</button>
+				</div>
+	
+				<div class="floating-label">
+					<input
+						type="text"
+						placeholder="placeholder"
+						pattern="[^\s\d]{3,}"
+						required=""
+						id="name" name="name"
+					/>
+					<label for="Name">Name</label>
+				</div>
+	
+				<div class="floating-label">
+					<input
+						id="Aadhar"
+						name="Aadhar"
+						type="text"
+						placeholder="placeholder"
+						pattern="\d{12}"
+						minlength="12"
+						maxlength="12"
+						required=""
+					/>
+					<label for="Aadhar">Aadhar Card Number</label>
+				</div>
+				<input type="hidden" id="EntityType" name="entity_type" value="" />
+				<button type="submit" id="Submit">SUBMIT</button>
+			</form>
+		</div>
+	</main>
+	
 	</html>
