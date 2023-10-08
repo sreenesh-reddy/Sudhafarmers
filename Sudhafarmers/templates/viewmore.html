@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-{%for forum in forums %}
-            
+
                 <div class="card box container">
                     <br>
                     <h5 class="card-title">
@@ -13,7 +12,7 @@
                             <p> By: {{forum.name}}</p>
                             <hr>     
     
-                            <h4>Views from other users</h4>
+                            <h4>Answers by experts:</h4>
                             {%for discuss in discussions%}
                             {%for objs in discuss%}  
                             {% if objs.forum == forum %}
@@ -24,12 +23,11 @@
                             {%endfor%}
                             <form method="POST" action="{% url 'addInDiscussion' %}">
                                 {% csrf_token %}
-                            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
+                            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Give Answer</button>
                             </form>
                         </div>
                 </div>
             </div>
             <br>
-            
-            {%endfor%}
+
 {% endblock %}

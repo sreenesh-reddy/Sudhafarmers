@@ -37,19 +37,8 @@
                             <p> By: {{forum.name}}</p>
                             <hr>     
                             <a href="/viewmore/{{ forum.topic }}" class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">View more</a>
-                            <h4>Views from other users</h4>
-                            {%for discuss in discussions%}
-                            {%for objs in discuss%}  
-                            {% if objs.forum == forum %}
-                               {{objs.discuss}}
-                               <br>
-                            {% endif %}
-                            {%endfor%}
-                            {%endfor%}
-                            <form method="POST" action="{% url 'addInDiscussion' %}">
-                                {% csrf_token %}
-                            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
-                            </form>
+                            
+
                         </div>
                 </div>
             </div>
