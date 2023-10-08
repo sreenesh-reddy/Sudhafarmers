@@ -33,7 +33,8 @@ urlpatterns = [
     path('askexpert/',views.askexp),
     path('addInForum/',views.addInForum,name='addInForum'),
     path('addInDiscussion/',views.addInDiscussion,name='addInDiscussion'),
-    path('viewmore/<str:topic>/',views.viewmore,name='view_more')
+    path('viewmore/<str:topic>/',views.viewmore,name='view_more'),
+    path('registration/farmer/',views.re)
 
 
 ]

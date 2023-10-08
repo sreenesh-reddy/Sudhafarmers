@@ -10,7 +10,8 @@ def farmers_home(request):
     return render(request, 'farmers_home.html')
 def sup(request):
     return render(request, 'signup.html')
-
+def re(request):
+    return render(request,'farmers_home.html')
 def auth_user(request):
     if request.user.is_authenticated:
         data = {
